@@ -148,7 +148,6 @@ def trip_duration_stats(df):
     df['Travel Time'] = df['End Time'] - df['Start Time']
 
     # TO DO: display total travel time
-    
     print("The total travel time is : " , (df['Travel Time'].sum()))
 
     # TO DO: display mean travel time
@@ -262,7 +261,10 @@ def main():
             trip_duration_stats(df)
             user_stats(df)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
+        while (restart != 'yes' and restart != 'y' and restart != 'no' and restart != 'n' ):
+            restart = input('Invalid input| Would you like to restart? Enter yes or no.\n').lower()
+
         if restart.lower() != 'yes' and restart.lower() != 'y':
             break
 
