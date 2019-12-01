@@ -2,10 +2,10 @@
 11/15/2019
 
 ### Project Title
-BikeShare data system
+BikeShare Data System Statistic Calculator
 
 ### Description
-This program helps calculate statistic of the Bike Share Program
+This program helps calculate statistic of the Bike Share Program for 3 major cities - Chicago , New York City and Washington DC
 
 ### Files used
 bikeshare.py        - Main prgram for all calculation
