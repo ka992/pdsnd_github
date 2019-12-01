@@ -232,9 +232,9 @@ def Menu():
                 choice = int(input('Invalid input: Please select an item from the menu below (Enter a # 1-5 only)\n'))
             return choice
         except:
-            print('Invalid input: Please select an item from the menu below (Enter a # 1-5 only)\n')
+            print('Invalid input: Please enter a # 1-5 only\n')
         finally:
-            print("This is not a number or number is out of range, please Enter a # 1-5 only\n")
+            print("This is not a number or number is out of range, please enter a # 1-5 only\n")
 
 def main():
     
