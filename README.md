@@ -1,15 +1,20 @@
 ### Date created
-Include the date you created this project and README file.
+11/15/2019
 
 ### Project Title
-Replace the Project Title
+BikeShare data system
 
 ### Description
-Describe what your project is about and what it does
+This program helps calculate statistic of the Bike Share Program
 
 ### Files used
-Include the files used
+bikeshare.py
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Terrance Kan - 
+Motivate - Data source , bike share system provider for many major cities
+Udacity - creator of repository
 
