@@ -97,8 +97,9 @@ def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
-    start_time = time.time()
+    Ask_show_raw_data(df)
 
+    start_time = time.time()
     # TO DO: display the most common month
     print('Most common month: ', MONTH_SELECTION[str(df['month'].mode()[0])])
     print('With a count of: ', (df['month'] == df['month'].mode()[0]).sum())
@@ -119,6 +120,7 @@ def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
+    Ask_show_raw_data(df)
     start_time = time.time()
 
     # TO DO: display most commonly used start station
@@ -141,6 +143,7 @@ def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...\n')
+    Ask_show_raw_data(df)
     start_time = time.time()
     df['Travel Time'] = df['End Time'] - df['Start Time']
 
@@ -154,11 +157,11 @@ def trip_duration_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
     print('\nCalculating User Stats...\n')
+    Ask_show_raw_data(df)
     start_time = time.time()
 
     col_name = check_if_column_exist(df,'User Type', 'Gender', 'Birth Year')
@@ -195,13 +198,25 @@ def check_if_column_exist(df,*column_name):
         index += 1
     return col_name
 
-
+#Load data into dataframe based user input in load_data(city, month, day)
 def start_init():
     print('Hello! Let\'s explore some US bikeshare data! \n')
     city, month, day = get_filters()
     df = load_data(city, month, day)
 
     return df
+
+#This fuction with show first 5 line of data
+def Ask_show_raw_data(df):
+    _choice = input("Would you like to see first 5 lines of data?: [Y/N] \n").upper()
+    #print(_choice)
+    while (_choice != "Y" and _choice != "N"):
+        _choice = input("Invalid input| Would you like to see first 5 lines of data?: [Y/N] \n").upper()
+    
+    if _choice == "Y" :
+        print("\n")
+        print(df.head(5)) 
+        print("\n")
 
 def Menu():
     print('Please select an item from the menu below (Enter a # 1-5 only ) \n')
@@ -210,11 +225,16 @@ def Menu():
     print('3. Displays statistics on the total and average trip duration. \n')
     print('4. Displays statistics on bikeshare users.\n')
     print('5. Fire all at once.\n')
-    choice = int(input())
-    while choice <= 0 or choice >5:
-        choice = int(input('Invalid input: Please select an item from the menu below (Enter a # 1-5 only)\n'))
-    return choice
-
+    while True: 
+        try:
+            choice = int(input())
+            while choice <= 0 or choice >5:
+                choice = int(input('Invalid input: Please select an item from the menu below (Enter a # 1-5 only)\n'))
+            return choice
+        except:
+            print('Invalid input: Please select an item from the menu below (Enter a # 1-5 only)\n')
+        finally:
+            print("This is not a number or number is out of range, please Enter a # 1-5 only\n")
 
 def main():
     
@@ -222,7 +242,7 @@ def main():
         df = start_init()
         
         menu_choice = Menu()
-        """Try to find a switch case like other lanuage, but python does not have it :). Did a research and result with a dict/ funt(). """
+        #Try to find a switch case like other lanuage, but python does not have it :). Did a research and result with a dict/ funt(). It's easier to use If and Else
         if menu_choice == 1:
             print('1. Displays statistics on the most frequent times of travel.')
             time_stats(df)
@@ -243,7 +263,7 @@ def main():
             user_stats(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
+        if restart.lower() != 'yes' and restart.lower() != 'y':
             break
 
 
