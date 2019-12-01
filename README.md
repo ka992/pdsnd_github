@@ -8,10 +8,10 @@ BikeShare data system
 This program helps calculate statistic of the Bike Share Program
 
 ### Files used
-bikeshare.py
-chicago.csv
-new_york_city.csv
-washington.csv
+bikeshare.py        - Main prgram for all calculation
+chicago.csv         - Data file for Chicago
+new_york_city.csv   - Data file for New York City
+washington.csv      - Data file for Washignton DC
 
 ### Credits
 Terrance Kan - 
