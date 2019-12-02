@@ -266,6 +266,7 @@ def main():
             restart = input('Invalid input| Would you like to restart? Enter yes or no.\n').lower()
 
         if restart.lower() != 'yes' and restart.lower() != 'y':
+            print ('\n Thank you for using our statistic program, have a good day. \n')
             break
 
 
